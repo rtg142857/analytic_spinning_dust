@@ -7,4 +7,6 @@ idealplots.py contains the code that was used to produce Figures 1-5.
 
 j3j4plots.py contains the code that was used to produce Figures 6-14.
 
+doublegoodness.py contains the code that was used to produce Figure 15.
+
 goodnessoffit.py contains the code that was used to produce Tables 2-6.
