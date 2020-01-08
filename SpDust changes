@@ -1,0 +1,19 @@
+To change the size distribution into a delta function:
+In charge_dist.pro, function JPEisrf_calc, under PARAMETERS:
+change a_max from 1d-6 to 3.51d-8
+
+To change the charge distribution into a delta function:
+In charge_dist.pro, function Zmax:
+Replace 'return, floor( ((hnu_max-W)/14.4d *aA + 0.5d - 0.3d/aA) / (1d + 0.3d/aA) )' with 'return, 0'
+In charge_dist.pro, function Zmin:
+Replace 'return, floor(U_ait/14.4d*aA) + 1' with 'return, 0'
+
+To change the shape distribution into only spherical grains:
+In grain_properties.pro, function parameters:
+Change a2 from 6d-8 to 6d-20
+
+To change the dipole moment distribution into a delta function:
+In emissivity.pro, function mu2_fa, directly under 'if (Ndipole EQ 1) then begin':
+Add line 'Proba     = 1.d ;This makes the dipole distribution a delta function. '
+Change f_rot from 'f_rot(env, a, fZ, mu_rms *sqrt(ip), mu_rms *sqrt(op), tumbling = tumbling)'
+to 'f_rot(env, a, fZ, mu_rms *sqrt(ip), mu_rms *sqrt(op), Proba, tumbling = tumbling)'
